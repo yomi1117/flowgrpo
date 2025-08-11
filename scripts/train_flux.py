@@ -349,6 +349,7 @@ def main(_):
     if accelerator.is_main_process:
         wandb.init(
             project="flow_grpo",
+            mode="offline",
             # mode="disabled"
         )
         # accelerator.init_trackers(

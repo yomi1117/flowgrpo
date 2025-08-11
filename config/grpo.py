@@ -388,7 +388,8 @@ def pickscore_flux_8gpu():
     config.dataset = os.path.join(os.getcwd(), "dataset/pickscore")
 
     # flux
-    config.pretrained.model = "black-forest-labs/FLUX.1-dev"
+    # config.pretrained.model = "black-forest-labs/FLUX.1-dev"
+    config.pretrained.model = "/pfs/yangyuanming/code2/models/FLUX.1-dev/model/black-forest-labs__FLUX.1-dev/main"
     config.sample.num_steps = 6
     config.sample.eval_num_steps = 28
     config.sample.guidance_scale = 3.5
