@@ -30,6 +30,8 @@ from peft import LoraConfig, get_peft_model, set_peft_model_state_dict, PeftMode
 import random
 from torch.utils.data import Dataset, DataLoader, Sampler
 from flow_grpo.ema import EMAModuleWrapper
+# >>> CHANGED: import deepspeed for zero.GatheredParameters with ZeRO-3
+import deepspeed
 
 tqdm = partial(tqdm.tqdm, dynamic_ncols=True)
 
@@ -133,46 +135,27 @@ def compute_text_embeddings(prompt, text_encoders, tokenizers, max_sequence_leng
 def calculate_zero_std_ratio(prompts, gathered_rewards):
     """
     Calculate the proportion of unique prompts whose reward standard deviation is zero.
-    
-    Args:
-        prompts: List of prompts.
-        gathered_rewards: Dictionary containing rewards, must include the key 'ori_avg'.
-        
-    Returns:
-        zero_std_ratio: Proportion of prompts with zero standard deviation.
-        prompt_std_devs: Mean standard deviation across all unique prompts.
     """
-    # Convert prompt list to NumPy array
     prompt_array = np.array(prompts)
-    
-    # Get unique prompts and their group information
     unique_prompts, inverse_indices, counts = np.unique(
         prompt_array, 
         return_inverse=True,
         return_counts=True
     )
-    
-    # Group rewards for each prompt
     grouped_rewards = gathered_rewards['ori_avg'][np.argsort(inverse_indices)]
     split_indices = np.cumsum(counts)[:-1]
     reward_groups = np.split(grouped_rewards, split_indices)
-    
-    # Calculate standard deviation for each group
     prompt_std_devs = np.array([np.std(group) for group in reward_groups])
-    
-    # Calculate the ratio of zero standard deviation
     zero_std_count = np.count_nonzero(prompt_std_devs == 0)
     zero_std_ratio = zero_std_count / len(prompt_std_devs)
-    
     return zero_std_ratio, prompt_std_devs.mean()
 
 def create_generator(prompts, base_seed):
     generators = []
     for prompt in prompts:
-        # Use a stable hash (SHA256), then convert it to an integer seed
         hash_digest = hashlib.sha256(prompt.encode()).digest()
-        prompt_hash_int = int.from_bytes(hash_digest[:4], 'big')  # Take the first 4 bytes as part of the seed
-        seed = (base_seed + prompt_hash_int) % (2**31) # Ensure the number is within a valid range
+        prompt_hash_int = int.from_bytes(hash_digest[:4], 'big')
+        seed = (base_seed + prompt_hash_int) % (2**31)
         gen = torch.Generator().manual_seed(seed)
         generators.append(gen)
     return generators
@@ -188,7 +171,6 @@ def compute_log_prob(transformer, pipeline, sample, j, config):
     else:
         guidance = None
 
-    # Predict the noise residual
     model_pred = transformer(
         hidden_states=packed_noisy_model_input,
         timestep=sample["timesteps"][:, j] / 1000,
@@ -199,7 +181,6 @@ def compute_log_prob(transformer, pipeline, sample, j, config):
         img_ids=sample["image_ids"][0],
         return_dict=False,
     )[0]
-    # compute the log prob of next_latents given latents under the current model
     prev_sample, log_prob, prev_sample_mean, std_dev_t = sde_step_with_logprob(
         pipeline.scheduler,
         model_pred.float(),
@@ -208,14 +189,28 @@ def compute_log_prob(transformer, pipeline, sample, j, config):
         prev_sample=sample["next_latents"][:, j].float(),
         noise_level=config.sample.noise_level,
     )
-
     return prev_sample, log_prob, prev_sample_mean, std_dev_t
 
-def eval(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerator, global_step, reward_fn, executor, autocast, num_train_timesteps, ema, transformer_trainable_parameters):
-    if config.train.ema:
-        ema.copy_ema_to(transformer_trainable_parameters, store_temp=True)
+# >>> CHANGED: helper to detect ZeRO-3
+def _is_zero3(accelerator):
+    try:
+        plugin = accelerator.state.deepspeed_plugin
+        return (plugin is not None) and getattr(plugin, "zero_stage", 0) == 3
+    except Exception:
+        return False
 
-    # test_dataloader = itertools.islice(test_dataloader, 2)
+def eval(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerator, global_step, reward_fn, executor, autocast, num_train_timesteps, ema, transformer_trainable_parameters):
+    # >>> CHANGED: EMA with ZeRO-3 gathered params
+    if config.train.ema:
+        if _is_zero3(accelerator):
+            params = transformer_trainable_parameters
+            with deepspeed.zero.GatheredParameters(params, modifier_rank=0):
+                if accelerator.process_index == 0:
+                    ema.copy_ema_to(params, store_temp=True)
+            accelerator.wait_for_everyone()
+        else:
+            ema.copy_ema_to(transformer_trainable_parameters, store_temp=True)
+
     all_rewards = defaultdict(list)
     for test_batch in tqdm(
             test_dataloader,
@@ -245,7 +240,6 @@ def eval(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerat
                     noise_level=0,
                 )
         rewards = executor.submit(reward_fn, images, prompts, prompt_metadata, only_strict=False)
-        # yield to to make sure reward computation starts
         time.sleep(0)
         rewards, reward_metadata = rewards.result()
 
@@ -253,7 +247,12 @@ def eval(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerat
             rewards_gather = accelerator.gather(torch.as_tensor(value, device=accelerator.device)).cpu().numpy()
             all_rewards[key].append(rewards_gather)
     
-    last_batch_images_gather = accelerator.gather(torch.as_tensor(images, device=accelerator.device)).cpu().numpy()
+    # last_batch_images_gather = accelerator.gather(torch.as_tensor(images, device=accelerator.device)).cpu().numpy()
+    # bfloat16 -> float32，避免 numpy 报错；尽量不额外复制
+    imgs = images.to(torch.float32, copy=False)
+    last_batch_images_gather = accelerator.gather(imgs).cpu().numpy()
+
+    
     last_batch_prompt_ids = tokenizers[0](
         prompts,
         padding="max_length",
@@ -273,7 +272,6 @@ def eval(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerat
     if accelerator.is_main_process:
         with tempfile.TemporaryDirectory() as tmpdir:
             num_samples = min(15, len(last_batch_images_gather))
-            # sample_indices = random.sample(range(len(images)), num_samples)
             sample_indices = range(num_samples)
             for idx, index in enumerate(sample_indices):
                 image = last_batch_images_gather[index]
@@ -299,8 +297,16 @@ def eval(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerat
                 },
                 step=global_step,
             )
+    # >>> CHANGED: EMA restore with ZeRO-3 gathered params
     if config.train.ema:
-        ema.copy_temp_to(transformer_trainable_parameters)
+        if _is_zero3(accelerator):
+            params = transformer_trainable_parameters
+            with deepspeed.zero.GatheredParameters(params, modifier_rank=0):
+                if accelerator.process_index == 0:
+                    ema.copy_temp_to(params)
+            accelerator.wait_for_everyone()
+        else:
+            ema.copy_temp_to(transformer_trainable_parameters)
 
 def unwrap_model(model, accelerator):
     model = accelerator.unwrap_model(model)
@@ -312,11 +318,22 @@ def save_ckpt(save_dir, transformer, global_step, accelerator, ema, transformer_
     save_root_lora = os.path.join(save_root, "lora")
     os.makedirs(save_root_lora, exist_ok=True)
     if accelerator.is_main_process:
+        # >>> CHANGED: EMA swap for saving under ZeRO-3
         if config.train.ema:
-            ema.copy_ema_to(transformer_trainable_parameters, store_temp=True)
+            if _is_zero3(accelerator):
+                params = transformer_trainable_parameters
+                with deepspeed.zero.GatheredParameters(params, modifier_rank=0):
+                    ema.copy_ema_to(params, store_temp=True)
+            else:
+                ema.copy_ema_to(transformer_trainable_parameters, store_temp=True)
         unwrap_model(transformer, accelerator).save_pretrained(save_root_lora)
         if config.train.ema:
-            ema.copy_temp_to(transformer_trainable_parameters)
+            if _is_zero3(accelerator):
+                params = transformer_trainable_parameters
+                with deepspeed.zero.GatheredParameters(params, modifier_rank=0):
+                    ema.copy_temp_to(params)
+            else:
+                ema.copy_temp_to(transformer_trainable_parameters)
 
 def main(_):
     # basic Accelerate and logging setup
@@ -331,6 +348,28 @@ def main(_):
     # number of timesteps within each trajectory to train on
     num_train_timesteps = int(config.sample.num_steps * config.train.timestep_fraction)
 
+    # >>> CHANGED: decide dtype BEFORE creating Accelerator (keeps DS from touching pipeline load)
+    if getattr(config, "mixed_precision", None) == "fp16":
+        inference_dtype = torch.float16
+    elif getattr(config, "mixed_precision", None) == "bf16":
+        inference_dtype = torch.bfloat16
+    else:
+        inference_dtype = torch.float32
+
+    # >>> CHANGED: ensure any DS/Accelerate flags won't affect pipeline loading phase
+    for _k in ("ACCELERATE_USE_DEEPSPEED", "DEEPSPEED_ZERO_STAGE", "DEEPSPEED_CONFIG_FILE"):
+        if _k in os.environ:
+            os.environ.pop(_k)
+
+    # >>> CHANGED: load scheduler, tokenizer and models BEFORE Accelerator, with safer args
+    pipeline = FluxPipeline.from_pretrained(
+        config.pretrained.model,
+        torch_dtype=inference_dtype,
+        low_cpu_mem_usage=True,   # 更稳的加载方式
+        use_safetensors=True,
+        local_files_only=False
+    )
+
     accelerator_config = ProjectConfiguration(
         project_dir=os.path.join(config.logdir, config.run_name),
         automatic_checkpoint_naming=True,
@@ -338,53 +377,19 @@ def main(_):
     )
 
     accelerator = Accelerator(
-        # log_with="wandb",
         mixed_precision=config.mixed_precision,
         project_config=accelerator_config,
-        # we always accumulate gradients across timesteps; we want config.train.gradient_accumulation_steps to be the
-        # number of *samples* we accumulate across, so we need to multiply by the number of training timesteps to get
-        # the total number of optimizer steps to accumulate across.
         gradient_accumulation_steps=config.train.gradient_accumulation_steps * num_train_timesteps,
     )
     if accelerator.is_main_process:
         wandb.init(
             project="flow_grpo",
             mode="offline",
-            # mode="disabled"
         )
-        # accelerator.init_trackers(
-        #     project_name="flow-grpo",
-        #     config=config.to_dict(),
-        #     init_kwargs={"wandb": {"name": config.run_name}},
-        # )
     logger.info(f"\n{config}")
 
     # set seed (device_specific is very important to get different prompts on different devices)
     set_seed(config.seed, device_specific=True)
-
-    # >>> NEW: compute inference dtype BEFORE loading pipeline
-    inference_dtype = torch.float32
-    if accelerator.mixed_precision == "fp16":
-        inference_dtype = torch.float16
-    elif accelerator.mixed_precision == "bf16":
-        inference_dtype = torch.bfloat16
-
-    # >>> NEW: only rank-0 hits HF hub/disk first; others wait to avoid cache lock / IO stampede
-    with accelerator.main_process_first():
-        pipeline = FluxPipeline.from_pretrained(
-            config.pretrained.model,
-            torch_dtype=inference_dtype,   # 直接用推断精度加载，降低 CPU 峰值
-            low_cpu_mem_usage=False,        
-            use_safetensors=True           # 更快更稳的权重格式
-        )
-    accelerator.wait_for_everyone()
-
-    
-    # load scheduler, tokenizer and models.
-    # pipeline = FluxPipeline.from_pretrained(
-    #     config.pretrained.model,
-    #     low_cpu_mem_usage=False
-    # )
     
     # freeze parameters of models to save more memory
     pipeline.vae.requires_grad_(False)
@@ -406,19 +411,11 @@ def main(_):
         dynamic_ncols=True,
     )
 
-    # # For mixed precision training we cast all non-trainable weigths (vae, non-lora text_encoder and non-lora transformer) to half-precision
-    # # as these weights are only used for inference, keeping weights in full precision is not required.
-    # inference_dtype = torch.float32
-    # if accelerator.mixed_precision == "fp16":
-    #     inference_dtype = torch.float16
-    # elif accelerator.mixed_precision == "bf16":
-    #     inference_dtype = torch.bfloat16
-
+    # >>> CHANGED: dtype 已经在上面决定，这里只做搬运
     # Move vae and text_encoder to device and cast to inference_dtype
     pipeline.vae.to(accelerator.device, dtype=torch.float32)
     pipeline.text_encoder.to(accelerator.device, dtype=inference_dtype)
     pipeline.text_encoder_2.to(accelerator.device, dtype=inference_dtype)
-    
     pipeline.transformer.to(accelerator.device)
 
     if config.use_lora:
@@ -445,18 +442,16 @@ def main(_):
         )
         if config.train.lora_path:
             pipeline.transformer = PeftModel.from_pretrained(pipeline.transformer, config.train.lora_path)
-            # After loading with PeftModel.from_pretrained, all parameters have requires_grad set to False. You need to call set_adapter to enable gradients for the adapter parameters.
             pipeline.transformer.set_adapter("default")
         else:
             pipeline.transformer = get_peft_model(pipeline.transformer, transformer_lora_config)
     
     transformer = pipeline.transformer
     transformer_trainable_parameters = list(filter(lambda p: p.requires_grad, transformer.parameters()))
-    # This ema setting affects the previous 20 × 8 = 160 steps on average.
+    # This ema setting affects the previous 20 × 8 = 160 steps on average.
     ema = EMAModuleWrapper(transformer_trainable_parameters, decay=0.9, update_step_interval=8, device=accelerator.device)
     
-    # Enable TF32 for faster training on Ampere GPUs,
-    # cf https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices
+    # Enable TF32 for faster training on Ampere GPUs
     if config.allow_tf32:
         torch.backends.cuda.matmul.allow_tf32 = True
 
@@ -465,10 +460,7 @@ def main(_):
         try:
             import bitsandbytes as bnb
         except ImportError:
-            raise ImportError(
-                "Please install bitsandbytes to use 8-bit Adam. You can do so by running `pip install bitsandbytes`"
-            )
-
+            raise ImportError("Please install bitsandbytes to use 8-bit Adam. You can do so by running `pip install bitsandbytes`")
         optimizer_cls = bnb.optim.AdamW8bit
     else:
         optimizer_cls = torch.optim.AdamW
@@ -489,7 +481,6 @@ def main(_):
         train_dataset = TextPromptDataset(config.dataset, 'train')
         test_dataset = TextPromptDataset(config.dataset, 'test')
 
-        # Create an infinite-loop DataLoader
         train_sampler = DistributedKRepeatSampler( 
             dataset=train_dataset,
             batch_size=config.sample.train_batch_size,
@@ -499,16 +490,13 @@ def main(_):
             seed=42
         )
 
-        # Create a DataLoader; note that shuffling is not needed here because it’s controlled by the Sampler.
         train_dataloader = DataLoader(
             train_dataset,
             batch_sampler=train_sampler,
             num_workers=1,
             collate_fn=TextPromptDataset.collate_fn,
-            # persistent_workers=True
         )
 
-        # Create a regular DataLoader
         test_dataloader = DataLoader(
             test_dataset,
             batch_size=config.sample.test_batch_size,
@@ -535,7 +523,6 @@ def main(_):
             batch_sampler=train_sampler,
             num_workers=1,
             collate_fn=GenevalPromptDataset.collate_fn,
-            # persistent_workers=True
         )
         test_dataloader = DataLoader(
             test_dataset,
@@ -549,22 +536,20 @@ def main(_):
 
     if config.sample.num_image_per_prompt == 1:
         config.per_prompt_stat_tracking = False
-    # initialize stat tracker
     if config.per_prompt_stat_tracking:
         stat_tracker = PerPromptStatTracker(config.sample.global_std)
 
-    # for some reason, autocast is necessary for non-lora training but for lora training it isn't necessary and it uses
-    # more memory
     autocast = contextlib.nullcontext if config.use_lora else accelerator.autocast
-    # autocast = accelerator.autocast
 
     # Prepare everything with our `accelerator`.
-    # for deepspeed zero
     if accelerator.state.deepspeed_plugin:
         accelerator.state.deepspeed_plugin.deepspeed_config['train_micro_batch_size_per_gpu'] = config.sample.train_batch_size
     transformer, optimizer, train_dataloader, test_dataloader = accelerator.prepare(transformer, optimizer, train_dataloader, test_dataloader)
-    # executor to perform callbacks asynchronously. this is beneficial for the llava callbacks which makes a request to a
-    # remote server running llava inference.
+
+    # NOTE: 如需避免“transformer 有两份权重”，可把 pipeline.transformer 指到 unwrap 后的同一份：
+    # 但在 ZeRO-3 下这样做需要在 forward 时 gather，复杂度较高，这里保持独立副本更稳。
+    # pipeline.transformer = unwrap_model(transformer, accelerator)
+
     executor = futures.ThreadPoolExecutor(max_workers=8)
 
     # Train!
@@ -582,21 +567,12 @@ def main(_):
     logger.info("***** Running training *****")
     logger.info(f"  Sample batch size per device = {config.sample.train_batch_size}")
     logger.info(f"  Train batch size per device = {config.train.batch_size}")
-    logger.info(
-        f"  Gradient Accumulation steps = {config.train.gradient_accumulation_steps}"
-    )
+    logger.info(f"  Gradient Accumulation steps = {config.train.gradient_accumulation_steps}")
     logger.info("")
     logger.info(f"  Total number of samples per epoch = {samples_per_epoch}")
-    logger.info(
-        f"  Total train batch size (w. parallel, distributed & accumulation) = {total_train_batch_size}"
-    )
-    logger.info(
-        f"  Number of gradient updates per inner epoch = {samples_per_epoch // total_train_batch_size}"
-    )
+    logger.info(f"  Total train batch size (w. parallel, distributed & accumulation) = {total_train_batch_size}")
+    logger.info(f"  Number of gradient updates per inner epoch = {samples_per_epoch // total_train_batch_size}")
     logger.info(f"  Number of inner epochs = {config.train.num_inner_epochs}")
-    # assert config.sample.train_batch_size >= config.train.batch_size
-    # assert config.sample.train_batch_size % config.train.batch_size == 0
-    # assert samples_per_epoch % total_train_batch_size == 0
 
     epoch = 0
     global_step = 0
@@ -638,7 +614,6 @@ def main(_):
                 return_tensors="pt",
             ).input_ids.to(accelerator.device)
 
-            # sample
             if config.sample.same_latent:
                 generator = create_generator(prompts, base_seed=epoch*10000+i)
             else:
@@ -659,15 +634,13 @@ def main(_):
                 )
 
             latents = torch.stack(latents, dim=1)  # (batch_size, num_steps + 1, 16, 96, 96)
-            log_probs = torch.stack(log_probs, dim=1)  # shape after stack (batch_size, num_steps)
+            log_probs = torch.stack(log_probs, dim=1)  # (batch_size, num_steps)
 
             timesteps = pipeline.scheduler.timesteps.repeat(
                 config.sample.train_batch_size, 1
             )  # (batch_size, num_steps)
 
-            # compute rewards asynchronously
             rewards = executor.submit(reward_fn, images, prompts, prompt_metadata, only_strict=True)
-            # yield to to make sure reward computation starts
             time.sleep(0)
 
             samples.append(
@@ -677,12 +650,8 @@ def main(_):
                     "pooled_prompt_embeds": pooled_prompt_embeds,
                     "image_ids": image_ids.unsqueeze(0).repeat(len(prompt_ids),1,1),
                     "timesteps": timesteps,
-                    "latents": latents[
-                        :, :-1
-                    ],  # each entry is the latent before timestep t
-                    "next_latents": latents[
-                        :, 1:
-                    ],  # each entry is the latent after timestep t
+                    "latents": latents[:, :-1],
+                    "next_latents": latents[:, 1:],
                     "log_probs": log_probs,
                     "rewards": rewards,
                 }
@@ -696,13 +665,12 @@ def main(_):
             position=0,
         ):
             rewards, reward_metadata = sample["rewards"].result()
-            # accelerator.print(reward_metadata)
             sample["rewards"] = {
                 key: torch.as_tensor(value, device=accelerator.device).float()
                 for key, value in rewards.items()
             }
 
-        # collate samples into dict where each entry has shape (num_batches_per_epoch * sample.batch_size, ...)
+        # collate samples
         samples = {
             k: torch.cat([s[k] for s in samples], dim=0)
             if not isinstance(samples[0][k], dict)
@@ -714,16 +682,15 @@ def main(_):
         }
 
         if epoch % 10 == 0 and accelerator.is_main_process:
-            # this is a hack to force wandb to log the images as JPEGs instead of PNGs
             with tempfile.TemporaryDirectory() as tmpdir:
                 num_samples = min(15, len(images))
                 sample_indices = random.sample(range(len(images)), num_samples)
-
                 for idx, i in enumerate(sample_indices):
-                    image = images[i]
+                    image = images[i].to(torch.float32)
                     pil = Image.fromarray(
                         (image.cpu().numpy().transpose(1, 2, 0) * 255).astype(np.uint8)
                     )
+
                     pil = pil.resize((config.resolution, config.resolution))
                     pil.save(os.path.join(tmpdir, f"{idx}.jpg"))
 
@@ -743,12 +710,10 @@ def main(_):
                     step=global_step,
                 )
         samples["rewards"]["ori_avg"] = samples["rewards"]["avg"]
-        # The purpose of repeating `adv` along the timestep dimension here is to make it easier to introduce timestep-dependent advantages later, such as adding a KL reward.
         samples["rewards"]["avg"] = samples["rewards"]["avg"].unsqueeze(1).repeat(1, num_train_timesteps)
-        # gather rewards across processes
+
         gathered_rewards = {key: accelerator.gather(value) for key, value in samples["rewards"].items()}
         gathered_rewards = {key: value.cpu().numpy() for key, value in gathered_rewards.items()}
-        # log rewards and images
         if accelerator.is_main_process:
             wandb.log(
                 {
@@ -758,22 +723,15 @@ def main(_):
                 step=global_step,
             )
 
-        # per-prompt mean/std tracking
         if config.per_prompt_stat_tracking:
-            # gather the prompts across processes
             prompt_ids = accelerator.gather(samples["prompt_ids"]).cpu().numpy()
-            prompts = pipeline.tokenizer.batch_decode(
-                prompt_ids, skip_special_tokens=True
-            )
+            prompts = pipeline.tokenizer.batch_decode(prompt_ids, skip_special_tokens=True)
             advantages = stat_tracker.update(prompts, gathered_rewards['avg'])
             if accelerator.is_local_main_process:
                 print("len(prompts)", len(prompts))
                 print("len unique prompts", len(set(prompts)))
-
             group_size, trained_prompt_num = stat_tracker.get_stats()
-
             zero_std_ratio, reward_std_mean = calculate_zero_std_ratio(prompts, gathered_rewards)
-
             if accelerator.is_main_process:
                 wandb.log(
                     {
@@ -788,7 +746,6 @@ def main(_):
         else:
             advantages = (gathered_rewards['avg'] - gathered_rewards['avg'].mean()) / (gathered_rewards['avg'].std() + 1e-4)
 
-        # ungather advantages; we only need to keep the entries corresponding to the samples on this process
         advantages = torch.as_tensor(advantages)
         samples["advantages"] = (
             advantages.reshape(accelerator.num_processes, -1, advantages.shape[-1])[accelerator.process_index]
@@ -801,27 +758,19 @@ def main(_):
         del samples["prompt_ids"]
 
         total_batch_size, num_timesteps = samples["timesteps"].shape
-
         assert num_timesteps == config.sample.num_steps
 
         #################### TRAINING ####################
         for inner_epoch in range(config.train.num_inner_epochs):
-            # shuffle samples along batch dimension
             perm = torch.randperm(total_batch_size, device=accelerator.device)
             samples = {k: v[perm] for k, v in samples.items()}
 
-            # rebatch for training
             samples_batched = {
                 k: v.reshape(-1, total_batch_size//config.sample.num_batches_per_epoch, *v.shape[1:])
                 for k, v in samples.items()
             }
+            samples_batched = [dict(zip(samples_batched, x)) for x in zip(*samples_batched.values())]
 
-            # dict of lists -> list of dicts for easier iteration
-            samples_batched = [
-                dict(zip(samples_batched, x)) for x in zip(*samples_batched.values())
-            ]
-
-            # train
             pipeline.transformer.train()
             info = defaultdict(list)
             for i, sample in tqdm(
@@ -846,16 +795,15 @@ def main(_):
                                     with transformer.module.disable_adapter():
                                         _, _, prev_sample_mean_ref, _ = compute_log_prob(transformer, pipeline, sample, j, config)
 
-                        # grpo logic
-                        advantages = torch.clamp(
+                        advantages_j = torch.clamp(
                             sample["advantages"][:, j],
                             -config.train.adv_clip_max,
                             config.train.adv_clip_max,
                         )
                         ratio = torch.exp(log_prob - sample["log_probs"][:, j])
                         print("ratio", ratio)
-                        unclipped_loss = -advantages * ratio
-                        clipped_loss = -advantages * torch.clamp(
+                        unclipped_loss = -advantages_j * ratio
+                        clipped_loss = -advantages_j * torch.clamp(
                             ratio,
                             1.0 - config.train.clip_range,
                             1.0 + config.train.clip_range,
@@ -868,52 +816,23 @@ def main(_):
                         else:
                             loss = policy_loss
 
-                        info["approx_kl"].append(
-                            0.5
-                            * torch.mean((log_prob - sample["log_probs"][:, j]) ** 2)
-                        )
-                        info["clipfrac"].append(
-                            torch.mean(
-                                (
-                                    torch.abs(ratio - 1.0) > config.train.clip_range
-                                ).float()
-                            )
-                        )
-                        info["clipfrac_gt_one"].append(
-                            torch.mean(
-                                (
-                                    ratio - 1.0 > config.train.clip_range
-                                ).float()
-                            )
-                        )
-                        info["clipfrac_lt_one"].append(
-                            torch.mean(
-                                (
-                                    1.0 - ratio > config.train.clip_range
-                                ).float()
-                            )
-                        )
+                        info["approx_kl"].append(0.5 * torch.mean((log_prob - sample["log_probs"][:, j]) ** 2))
+                        info["clipfrac"].append(torch.mean((torch.abs(ratio - 1.0) > config.train.clip_range).float()))
+                        info["clipfrac_gt_one"].append(torch.mean((ratio - 1.0 > config.train.clip_range).float()))
+                        info["clipfrac_lt_one"].append(torch.mean((1.0 - ratio > config.train.clip_range).float()))
                         info["policy_loss"].append(policy_loss)
                         if config.train.beta > 0:
                             info["kl_loss"].append(kl_loss)
-
                         info["loss"].append(loss)
 
                         # backward pass
                         accelerator.backward(loss)
                         if accelerator.sync_gradients:
-                            accelerator.clip_grad_norm_(
-                                transformer.parameters(), config.train.max_grad_norm
-                            )
+                            accelerator.clip_grad_norm_(transformer.parameters(), config.train.max_grad_norm)
                         optimizer.step()
                         optimizer.zero_grad()
 
-                    # Checks if the accelerator has performed an optimization step behind the scenes
                     if accelerator.sync_gradients:
-                        # assert (j == train_timesteps[-1]) and (
-                        #     i + 1
-                        # ) % config.train.gradient_accumulation_steps == 0
-                        # log training-related stuff
                         info = {k: torch.mean(torch.stack(v)) for k, v in info.items()}
                         info = accelerator.reduce(info, reduction="mean")
                         info.update({"epoch": epoch, "inner_epoch": inner_epoch})
@@ -921,13 +840,20 @@ def main(_):
                             wandb.log(info, step=global_step)
                         global_step += 1
                         info = defaultdict(list)
+
+                # >>> CHANGED: EMA step under ZeRO-3 uses gathered params,且降低频率
                 if config.train.ema:
-                    ema.step(transformer_trainable_parameters, global_step)
-            # make sure we did an optimization step at the end of the inner epoch
-            # assert accelerator.sync_gradients
+                    if _is_zero3(accelerator):
+                        params = transformer_trainable_parameters
+                        if (global_step % ema.update_step_interval) == 0:
+                            with deepspeed.zero.GatheredParameters(params, modifier_rank=0):
+                                if accelerator.process_index == 0:
+                                    ema.step(params, global_step)
+                            accelerator.wait_for_everyone()
+                    else:
+                        ema.step(transformer_trainable_parameters, global_step)
         
-        epoch+=1
+        epoch += 1
         
 if __name__ == "__main__":
     app.run(main)
-

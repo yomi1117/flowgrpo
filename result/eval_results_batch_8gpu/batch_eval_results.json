@@ -1,0 +1,2480 @@
+[
+  {
+    "step": 0,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-0",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 0.9769859910011292,
+        "std": 0.8570219874382019,
+        "min": -2.1719841957092285,
+        "max": 2.0154099464416504,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 0.9769859910011292,
+        "std": 0.8570219874382019,
+        "min": -2.1719841957092285,
+        "max": 2.0154099464416504,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:08:23.863352"
+  },
+  {
+    "step": 60,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-60",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1040966510772705,
+        "std": 0.7910657525062561,
+        "min": -2.0577778816223145,
+        "max": 2.013664484024048,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1040966510772705,
+        "std": 0.7910657525062561,
+        "min": -2.0577778816223145,
+        "max": 2.013664484024048,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:15:51.897765"
+  },
+  {
+    "step": 120,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-120",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.245003342628479,
+        "std": 0.7188519239425659,
+        "min": -1.80646550655365,
+        "max": 2.013920545578003,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.245003342628479,
+        "std": 0.7188519239425659,
+        "min": -1.80646550655365,
+        "max": 2.013920545578003,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:23:22.929850"
+  },
+  {
+    "step": 180,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-180",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3071269989013672,
+        "std": 0.6803248524665833,
+        "min": -1.6440328359603882,
+        "max": 2.0154812335968018,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3071269989013672,
+        "std": 0.6803248524665833,
+        "min": -1.6440328359603882,
+        "max": 2.0154812335968018,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:30:47.650001"
+  },
+  {
+    "step": 240,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-240",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3180701732635498,
+        "std": 0.6563910245895386,
+        "min": -1.6251280307769775,
+        "max": 2.016019344329834,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3180701732635498,
+        "std": 0.6563910245895386,
+        "min": -1.6251280307769775,
+        "max": 2.016019344329834,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:38:11.057115"
+  },
+  {
+    "step": 300,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-300",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3376463651657104,
+        "std": 0.6492045521736145,
+        "min": -2.002539873123169,
+        "max": 2.015193462371826,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3376463651657104,
+        "std": 0.6492045521736145,
+        "min": -2.002539873123169,
+        "max": 2.015193462371826,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:45:35.226479"
+  },
+  {
+    "step": 360,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-360",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4168179035186768,
+        "std": 0.5994958877563477,
+        "min": -1.7637993097305298,
+        "max": 2.0174624919891357,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4168179035186768,
+        "std": 0.5994958877563477,
+        "min": -1.7637993097305298,
+        "max": 2.0174624919891357,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T14:52:59.346200"
+  },
+  {
+    "step": 420,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-420",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4311497211456299,
+        "std": 0.5899796485900879,
+        "min": -1.4095755815505981,
+        "max": 2.0184249877929688,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4311497211456299,
+        "std": 0.5899796485900879,
+        "min": -1.4095755815505981,
+        "max": 2.0184249877929688,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:00:24.234822"
+  },
+  {
+    "step": 480,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-480",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4182896614074707,
+        "std": 0.6036733984947205,
+        "min": -1.5596845149993896,
+        "max": 2.016371726989746,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4182896614074707,
+        "std": 0.6036733984947205,
+        "min": -1.5596845149993896,
+        "max": 2.016371726989746,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:07:47.068988"
+  },
+  {
+    "step": 540,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-540",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4627968072891235,
+        "std": 0.5577765107154846,
+        "min": -1.408825159072876,
+        "max": 2.015742540359497,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4627968072891235,
+        "std": 0.5577765107154846,
+        "min": -1.408825159072876,
+        "max": 2.015742540359497,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:15:12.927603"
+  },
+  {
+    "step": 600,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-600",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4714879989624023,
+        "std": 0.5627740621566772,
+        "min": -1.829919457435608,
+        "max": 2.0190351009368896,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4714879989624023,
+        "std": 0.5627740621566772,
+        "min": -1.829919457435608,
+        "max": 2.0190351009368896,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:22:37.147307"
+  },
+  {
+    "step": 660,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-660",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4795863628387451,
+        "std": 0.5558425188064575,
+        "min": -1.2223930358886719,
+        "max": 2.0146431922912598,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4795863628387451,
+        "std": 0.5558425188064575,
+        "min": -1.2223930358886719,
+        "max": 2.0146431922912598,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:30:02.687808"
+  },
+  {
+    "step": 720,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-720",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4854966402053833,
+        "std": 0.5534561276435852,
+        "min": -1.1442546844482422,
+        "max": 2.0182650089263916,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4854966402053833,
+        "std": 0.5534561276435852,
+        "min": -1.1442546844482422,
+        "max": 2.0182650089263916,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:37:26.099402"
+  },
+  {
+    "step": 780,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-780",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4777016639709473,
+        "std": 0.5604230761528015,
+        "min": -1.4628466367721558,
+        "max": 2.0178468227386475,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4777016639709473,
+        "std": 0.5604230761528015,
+        "min": -1.4628466367721558,
+        "max": 2.0178468227386475,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:44:49.471808"
+  },
+  {
+    "step": 840,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-840",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4371297359466553,
+        "std": 0.5801805257797241,
+        "min": -1.3292052745819092,
+        "max": 2.0162925720214844,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4371297359466553,
+        "std": 0.5801805257797241,
+        "min": -1.3292052745819092,
+        "max": 2.0162925720214844,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:52:13.852571"
+  },
+  {
+    "step": 900,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-900",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.455378532409668,
+        "std": 0.5836191773414612,
+        "min": -1.9533026218414307,
+        "max": 2.0153143405914307,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.455378532409668,
+        "std": 0.5836191773414612,
+        "min": -1.9533026218414307,
+        "max": 2.0153143405914307,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T15:59:39.594306"
+  },
+  {
+    "step": 960,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-960",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4855084419250488,
+        "std": 0.5751468539237976,
+        "min": -1.8209428787231445,
+        "max": 2.017936944961548,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4855084419250488,
+        "std": 0.5751468539237976,
+        "min": -1.8209428787231445,
+        "max": 2.017936944961548,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:07:04.417602"
+  },
+  {
+    "step": 1020,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1020",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.462199330329895,
+        "std": 0.5908330082893372,
+        "min": -1.3698973655700684,
+        "max": 2.0190842151641846,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.462199330329895,
+        "std": 0.5908330082893372,
+        "min": -1.3698973655700684,
+        "max": 2.0190842151641846,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:14:28.759956"
+  },
+  {
+    "step": 1080,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1080",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4750144481658936,
+        "std": 0.5684033632278442,
+        "min": -1.5051409006118774,
+        "max": 2.0183632373809814,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4750144481658936,
+        "std": 0.5684033632278442,
+        "min": -1.5051409006118774,
+        "max": 2.0183632373809814,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:21:54.272842"
+  },
+  {
+    "step": 1140,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1140",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4700605869293213,
+        "std": 0.585210382938385,
+        "min": -1.8685747385025024,
+        "max": 2.017888069152832,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4700605869293213,
+        "std": 0.585210382938385,
+        "min": -1.8685747385025024,
+        "max": 2.017888069152832,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:29:18.487896"
+  },
+  {
+    "step": 1200,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1200",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4764792919158936,
+        "std": 0.585969090461731,
+        "min": -1.5503607988357544,
+        "max": 2.018287181854248,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4764792919158936,
+        "std": 0.585969090461731,
+        "min": -1.5503607988357544,
+        "max": 2.018287181854248,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:36:43.348157"
+  },
+  {
+    "step": 1260,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1260",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.453978419303894,
+        "std": 0.612316370010376,
+        "min": -1.755261778831482,
+        "max": 2.0165915489196777,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.453978419303894,
+        "std": 0.612316370010376,
+        "min": -1.755261778831482,
+        "max": 2.0165915489196777,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:44:08.543824"
+  },
+  {
+    "step": 1320,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1320",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.434596061706543,
+        "std": 0.62690269947052,
+        "min": -1.6258223056793213,
+        "max": 2.0180976390838623,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.434596061706543,
+        "std": 0.62690269947052,
+        "min": -1.6258223056793213,
+        "max": 2.0180976390838623,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:51:33.193100"
+  },
+  {
+    "step": 1380,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1380",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4115827083587646,
+        "std": 0.6553459763526917,
+        "min": -2.0668795108795166,
+        "max": 2.0160319805145264,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4115827083587646,
+        "std": 0.6553459763526917,
+        "min": -2.0668795108795166,
+        "max": 2.0160319805145264,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T16:59:09.260994"
+  },
+  {
+    "step": 1440,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1440",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3801252841949463,
+        "std": 0.6652116179466248,
+        "min": -1.7990800142288208,
+        "max": 2.0172295570373535,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3801252841949463,
+        "std": 0.6652116179466248,
+        "min": -1.7990800142288208,
+        "max": 2.0172295570373535,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:06:31.979315"
+  },
+  {
+    "step": 1500,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1500",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.460432529449463,
+        "std": 0.6087971925735474,
+        "min": -2.108088493347168,
+        "max": 2.0184593200683594,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.460432529449463,
+        "std": 0.6087971925735474,
+        "min": -2.108088493347168,
+        "max": 2.0184593200683594,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:13:58.222344"
+  },
+  {
+    "step": 1560,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1560",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4460433721542358,
+        "std": 0.6333937048912048,
+        "min": -2.2351090908050537,
+        "max": 2.0184950828552246,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4460433721542358,
+        "std": 0.6333937048912048,
+        "min": -2.2351090908050537,
+        "max": 2.0184950828552246,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:23:48.980760"
+  },
+  {
+    "step": 1620,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1620",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4294604063034058,
+        "std": 0.6595298647880554,
+        "min": -2.195854902267456,
+        "max": 2.0180585384368896,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4294604063034058,
+        "std": 0.6595298647880554,
+        "min": -2.195854902267456,
+        "max": 2.0180585384368896,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:31:14.239271"
+  },
+  {
+    "step": 1680,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1680",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4303138256072998,
+        "std": 0.6624324917793274,
+        "min": -2.2595181465148926,
+        "max": 2.0185961723327637,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4303138256072998,
+        "std": 0.6624324917793274,
+        "min": -2.2595181465148926,
+        "max": 2.0185961723327637,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:38:38.337885"
+  },
+  {
+    "step": 1740,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1740",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4332737922668457,
+        "std": 0.6576961278915405,
+        "min": -2.0095465183258057,
+        "max": 2.0194272994995117,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4332737922668457,
+        "std": 0.6576961278915405,
+        "min": -2.0095465183258057,
+        "max": 2.0194272994995117,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:46:03.490926"
+  },
+  {
+    "step": 1800,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1800",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.391756296157837,
+        "std": 0.685863733291626,
+        "min": -2.089324951171875,
+        "max": 2.0184314250946045,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.391756296157837,
+        "std": 0.685863733291626,
+        "min": -2.089324951171875,
+        "max": 2.0184314250946045,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T17:53:26.884933"
+  },
+  {
+    "step": 1860,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1860",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4130582809448242,
+        "std": 0.6936804056167603,
+        "min": -2.1136226654052734,
+        "max": 2.0159480571746826,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4130582809448242,
+        "std": 0.6936804056167603,
+        "min": -2.1136226654052734,
+        "max": 2.0159480571746826,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:00:52.249929"
+  },
+  {
+    "step": 1920,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1920",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3943647146224976,
+        "std": 0.6889240741729736,
+        "min": -2.170671224594116,
+        "max": 2.018052577972412,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3943647146224976,
+        "std": 0.6889240741729736,
+        "min": -2.170671224594116,
+        "max": 2.018052577972412,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:08:16.974236"
+  },
+  {
+    "step": 1980,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-1980",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4509086608886719,
+        "std": 0.6314088106155396,
+        "min": -1.793487548828125,
+        "max": 2.018819808959961,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4509086608886719,
+        "std": 0.6314088106155396,
+        "min": -1.793487548828125,
+        "max": 2.018819808959961,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:15:41.670551"
+  },
+  {
+    "step": 2040,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2040",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.442196011543274,
+        "std": 0.6318943500518799,
+        "min": -2.008268117904663,
+        "max": 2.0176846981048584,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.442196011543274,
+        "std": 0.6318943500518799,
+        "min": -2.008268117904663,
+        "max": 2.0176846981048584,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:23:05.406572"
+  },
+  {
+    "step": 2100,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2100",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4392658472061157,
+        "std": 0.6397808194160461,
+        "min": -2.1231696605682373,
+        "max": 2.0191128253936768,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4392658472061157,
+        "std": 0.6397808194160461,
+        "min": -2.1231696605682373,
+        "max": 2.0191128253936768,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:30:32.216179"
+  },
+  {
+    "step": 2160,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2160",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4370663166046143,
+        "std": 0.6397227644920349,
+        "min": -2.1644701957702637,
+        "max": 2.0178418159484863,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4370663166046143,
+        "std": 0.6397227644920349,
+        "min": -2.1644701957702637,
+        "max": 2.0178418159484863,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:37:56.144302"
+  },
+  {
+    "step": 2220,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2220",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3916850090026855,
+        "std": 0.6861370205879211,
+        "min": -2.0500237941741943,
+        "max": 2.018794536590576,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3916850090026855,
+        "std": 0.6861370205879211,
+        "min": -2.0500237941741943,
+        "max": 2.018794536590576,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:45:20.026313"
+  },
+  {
+    "step": 2280,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2280",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4230434894561768,
+        "std": 0.6499144434928894,
+        "min": -2.0449509620666504,
+        "max": 2.018954038619995,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4230434894561768,
+        "std": 0.6499144434928894,
+        "min": -2.0449509620666504,
+        "max": 2.018954038619995,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T18:52:44.171809"
+  },
+  {
+    "step": 2340,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2340",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.417223334312439,
+        "std": 0.6670672297477722,
+        "min": -2.193878412246704,
+        "max": 2.017693281173706,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.417223334312439,
+        "std": 0.6670672297477722,
+        "min": -2.193878412246704,
+        "max": 2.017693281173706,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:00:07.469966"
+  },
+  {
+    "step": 2400,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2400",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4045231342315674,
+        "std": 0.6678189039230347,
+        "min": -2.225628137588501,
+        "max": 2.017692804336548,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4045231342315674,
+        "std": 0.6678189039230347,
+        "min": -2.225628137588501,
+        "max": 2.017692804336548,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:07:31.747344"
+  },
+  {
+    "step": 2460,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2460",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4170150756835938,
+        "std": 0.6822471022605896,
+        "min": -2.2297232151031494,
+        "max": 2.019038438796997,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4170150756835938,
+        "std": 0.6822471022605896,
+        "min": -2.2297232151031494,
+        "max": 2.019038438796997,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:14:57.411751"
+  },
+  {
+    "step": 2520,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2520",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3816771507263184,
+        "std": 0.6895034313201904,
+        "min": -2.21091365814209,
+        "max": 2.0192275047302246,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3816771507263184,
+        "std": 0.6895034313201904,
+        "min": -2.21091365814209,
+        "max": 2.0192275047302246,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:22:21.314627"
+  },
+  {
+    "step": 2580,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2580",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4236340522766113,
+        "std": 0.6593555808067322,
+        "min": -1.9769890308380127,
+        "max": 2.018040657043457,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4236340522766113,
+        "std": 0.6593555808067322,
+        "min": -1.9769890308380127,
+        "max": 2.018040657043457,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:29:43.609114"
+  },
+  {
+    "step": 2640,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2640",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4686959981918335,
+        "std": 0.6141923069953918,
+        "min": -1.6411168575286865,
+        "max": 2.018627166748047,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4686959981918335,
+        "std": 0.6141923069953918,
+        "min": -1.6411168575286865,
+        "max": 2.018627166748047,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:37:06.493897"
+  },
+  {
+    "step": 2700,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2700",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.4202715158462524,
+        "std": 0.6526848673820496,
+        "min": -1.9169573783874512,
+        "max": 2.018458604812622,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.4202715158462524,
+        "std": 0.6526848673820496,
+        "min": -1.9169573783874512,
+        "max": 2.018458604812622,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:44:30.829403"
+  },
+  {
+    "step": 2760,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2760",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3988373279571533,
+        "std": 0.6547585725784302,
+        "min": -1.9012317657470703,
+        "max": 2.0196495056152344,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3988373279571533,
+        "std": 0.6547585725784302,
+        "min": -1.9012317657470703,
+        "max": 2.0196495056152344,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:51:55.203436"
+  },
+  {
+    "step": 2820,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2820",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3842158317565918,
+        "std": 0.688574492931366,
+        "min": -2.125842571258545,
+        "max": 2.017993688583374,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3842158317565918,
+        "std": 0.688574492931366,
+        "min": -2.125842571258545,
+        "max": 2.017993688583374,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T19:59:21.712783"
+  },
+  {
+    "step": 2880,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2880",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2734129428863525,
+        "std": 0.7397151589393616,
+        "min": -2.160100221633911,
+        "max": 2.0149600505828857,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2734129428863525,
+        "std": 0.7397151589393616,
+        "min": -2.160100221633911,
+        "max": 2.0149600505828857,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:06:45.252468"
+  },
+  {
+    "step": 2940,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-2940",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3192157745361328,
+        "std": 0.7103760838508606,
+        "min": -1.9043039083480835,
+        "max": 2.0143630504608154,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3192157745361328,
+        "std": 0.7103760838508606,
+        "min": -1.9043039083480835,
+        "max": 2.0143630504608154,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:14:08.202310"
+  },
+  {
+    "step": 3000,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3000",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3321857452392578,
+        "std": 0.7031984329223633,
+        "min": -2.067558526992798,
+        "max": 2.014080047607422,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3321857452392578,
+        "std": 0.7031984329223633,
+        "min": -2.067558526992798,
+        "max": 2.014080047607422,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:21:31.431594"
+  },
+  {
+    "step": 3060,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3060",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3716015815734863,
+        "std": 0.6975345015525818,
+        "min": -2.001528024673462,
+        "max": 2.015150547027588,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3716015815734863,
+        "std": 0.6975345015525818,
+        "min": -2.001528024673462,
+        "max": 2.015150547027588,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:28:59.042584"
+  },
+  {
+    "step": 3120,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3120",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3870460987091064,
+        "std": 0.6887103319168091,
+        "min": -2.095844268798828,
+        "max": 2.0157296657562256,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3870460987091064,
+        "std": 0.6887103319168091,
+        "min": -2.095844268798828,
+        "max": 2.0157296657562256,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:36:20.804583"
+  },
+  {
+    "step": 3180,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3180",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3272303342819214,
+        "std": 0.7012426257133484,
+        "min": -2.0772149562835693,
+        "max": 2.0166265964508057,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3272303342819214,
+        "std": 0.7012426257133484,
+        "min": -2.0772149562835693,
+        "max": 2.0166265964508057,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:43:44.684227"
+  },
+  {
+    "step": 3240,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3240",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2898446321487427,
+        "std": 0.7492659687995911,
+        "min": -2.13775897026062,
+        "max": 2.013307571411133,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2898446321487427,
+        "std": 0.7492659687995911,
+        "min": -2.13775897026062,
+        "max": 2.013307571411133,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:51:07.185679"
+  },
+  {
+    "step": 3300,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3300",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2753645181655884,
+        "std": 0.7556166052818298,
+        "min": -2.233168601989746,
+        "max": 2.014147996902466,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2753645181655884,
+        "std": 0.7556166052818298,
+        "min": -2.233168601989746,
+        "max": 2.014147996902466,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T20:58:28.748737"
+  },
+  {
+    "step": 3360,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3360",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.223628282546997,
+        "std": 0.7874431014060974,
+        "min": -2.2451131343841553,
+        "max": 2.0141549110412598,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.223628282546997,
+        "std": 0.7874431014060974,
+        "min": -2.2451131343841553,
+        "max": 2.0141549110412598,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:05:51.686285"
+  },
+  {
+    "step": 3420,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3420",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2936809062957764,
+        "std": 0.7165274024009705,
+        "min": -1.936317801475525,
+        "max": 2.014007806777954,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2936809062957764,
+        "std": 0.7165274024009705,
+        "min": -1.936317801475525,
+        "max": 2.014007806777954,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:13:13.771119"
+  },
+  {
+    "step": 3480,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3480",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2850010395050049,
+        "std": 0.7138132452964783,
+        "min": -1.9728143215179443,
+        "max": 2.014186143875122,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2850010395050049,
+        "std": 0.7138132452964783,
+        "min": -1.9728143215179443,
+        "max": 2.014186143875122,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:20:36.677828"
+  },
+  {
+    "step": 3540,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3540",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2430323362350464,
+        "std": 0.7690852880477905,
+        "min": -2.1676883697509766,
+        "max": 2.015983819961548,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2430323362350464,
+        "std": 0.7690852880477905,
+        "min": -2.1676883697509766,
+        "max": 2.015983819961548,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:27:59.217662"
+  },
+  {
+    "step": 3600,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3600",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.256107211112976,
+        "std": 0.7589559555053711,
+        "min": -2.2003114223480225,
+        "max": 2.015669584274292,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.256107211112976,
+        "std": 0.7589559555053711,
+        "min": -2.2003114223480225,
+        "max": 2.015669584274292,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:35:23.213575"
+  },
+  {
+    "step": 3660,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3660",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3014088869094849,
+        "std": 0.7215244174003601,
+        "min": -2.182659149169922,
+        "max": 2.0156092643737793,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3014088869094849,
+        "std": 0.7215244174003601,
+        "min": -2.182659149169922,
+        "max": 2.0156092643737793,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:42:48.082185"
+  },
+  {
+    "step": 3720,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3720",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2752203941345215,
+        "std": 0.7446967959403992,
+        "min": -2.207742929458618,
+        "max": 2.0162010192871094,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2752203941345215,
+        "std": 0.7446967959403992,
+        "min": -2.207742929458618,
+        "max": 2.0162010192871094,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:50:15.848024"
+  },
+  {
+    "step": 3780,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3780",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2960082292556763,
+        "std": 0.7286440134048462,
+        "min": -2.1761481761932373,
+        "max": 2.01542329788208,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2960082292556763,
+        "std": 0.7286440134048462,
+        "min": -2.1761481761932373,
+        "max": 2.01542329788208,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T21:57:39.857235"
+  },
+  {
+    "step": 3840,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3840",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2500386238098145,
+        "std": 0.760381817817688,
+        "min": -2.183908462524414,
+        "max": 2.0122337341308594,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2500386238098145,
+        "std": 0.760381817817688,
+        "min": -2.183908462524414,
+        "max": 2.0122337341308594,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:05:03.281627"
+  },
+  {
+    "step": 3900,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3900",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.235520362854004,
+        "std": 0.7621631026268005,
+        "min": -2.1783599853515625,
+        "max": 2.0138988494873047,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.235520362854004,
+        "std": 0.7621631026268005,
+        "min": -2.1783599853515625,
+        "max": 2.0138988494873047,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:12:27.153755"
+  },
+  {
+    "step": 3960,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-3960",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.3060967922210693,
+        "std": 0.6991873383522034,
+        "min": -2.1617119312286377,
+        "max": 2.01873779296875,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.3060967922210693,
+        "std": 0.6991873383522034,
+        "min": -2.1617119312286377,
+        "max": 2.01873779296875,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:19:52.429074"
+  },
+  {
+    "step": 4020,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4020",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.309417486190796,
+        "std": 0.7086770534515381,
+        "min": -2.100226879119873,
+        "max": 2.0158944129943848,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.309417486190796,
+        "std": 0.7086770534515381,
+        "min": -2.100226879119873,
+        "max": 2.0158944129943848,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:27:16.745630"
+  },
+  {
+    "step": 4080,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4080",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2368793487548828,
+        "std": 0.7649890780448914,
+        "min": -2.1977717876434326,
+        "max": 2.013740301132202,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2368793487548828,
+        "std": 0.7649890780448914,
+        "min": -2.1977717876434326,
+        "max": 2.013740301132202,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:34:41.272568"
+  },
+  {
+    "step": 4140,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4140",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2604304552078247,
+        "std": 0.7552105188369751,
+        "min": -2.254706382751465,
+        "max": 2.017097234725952,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2604304552078247,
+        "std": 0.7552105188369751,
+        "min": -2.254706382751465,
+        "max": 2.017097234725952,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:42:03.236474"
+  },
+  {
+    "step": 4200,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4200",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2454471588134766,
+        "std": 0.7616555094718933,
+        "min": -2.245959997177124,
+        "max": 2.0155065059661865,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2454471588134766,
+        "std": 0.7616555094718933,
+        "min": -2.245959997177124,
+        "max": 2.0155065059661865,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:49:28.308297"
+  },
+  {
+    "step": 4260,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4260",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.256380558013916,
+        "std": 0.7729977369308472,
+        "min": -2.185239791870117,
+        "max": 2.016646385192871,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.256380558013916,
+        "std": 0.7729977369308472,
+        "min": -2.185239791870117,
+        "max": 2.016646385192871,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T22:56:52.822193"
+  },
+  {
+    "step": 4320,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4320",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2718205451965332,
+        "std": 0.7607869505882263,
+        "min": -2.2107298374176025,
+        "max": 2.015072822570801,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2718205451965332,
+        "std": 0.7607869505882263,
+        "min": -2.2107298374176025,
+        "max": 2.015072822570801,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:04:17.507865"
+  },
+  {
+    "step": 4380,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4380",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.204369068145752,
+        "std": 0.8154343366622925,
+        "min": -2.201188325881958,
+        "max": 2.0136120319366455,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.204369068145752,
+        "std": 0.8154343366622925,
+        "min": -2.201188325881958,
+        "max": 2.0136120319366455,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:11:41.812790"
+  },
+  {
+    "step": 4440,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4440",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.22091805934906,
+        "std": 0.7828056216239929,
+        "min": -2.217639923095703,
+        "max": 2.0152926445007324,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.22091805934906,
+        "std": 0.7828056216239929,
+        "min": -2.217639923095703,
+        "max": 2.0152926445007324,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:19:05.985867"
+  },
+  {
+    "step": 4500,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4500",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2787411212921143,
+        "std": 0.7241863012313843,
+        "min": -2.243034601211548,
+        "max": 2.0154268741607666,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2787411212921143,
+        "std": 0.7241863012313843,
+        "min": -2.243034601211548,
+        "max": 2.0154268741607666,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:26:26.328804"
+  },
+  {
+    "step": 4560,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4560",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2521288394927979,
+        "std": 0.7654290795326233,
+        "min": -2.205951452255249,
+        "max": 2.0166475772857666,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2521288394927979,
+        "std": 0.7654290795326233,
+        "min": -2.205951452255249,
+        "max": 2.0166475772857666,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:33:51.008906"
+  },
+  {
+    "step": 4620,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4620",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2055076360702515,
+        "std": 0.7933909893035889,
+        "min": -2.224663734436035,
+        "max": 2.0145437717437744,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2055076360702515,
+        "std": 0.7933909893035889,
+        "min": -2.224663734436035,
+        "max": 2.0145437717437744,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:41:15.727383"
+  },
+  {
+    "step": 4680,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4680",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2675211429595947,
+        "std": 0.7170432209968567,
+        "min": -2.0059657096862793,
+        "max": 2.014744520187378,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2675211429595947,
+        "std": 0.7170432209968567,
+        "min": -2.0059657096862793,
+        "max": 2.014744520187378,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:48:37.633128"
+  },
+  {
+    "step": 4740,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4740",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2326388359069824,
+        "std": 0.7609089016914368,
+        "min": -2.0628111362457275,
+        "max": 2.0144553184509277,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2326388359069824,
+        "std": 0.7609089016914368,
+        "min": -2.0628111362457275,
+        "max": 2.0144553184509277,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-18T23:56:01.075742"
+  },
+  {
+    "step": 4800,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4800",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.239494800567627,
+        "std": 0.758029580116272,
+        "min": -2.182173013687134,
+        "max": 2.013059377670288,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.239494800567627,
+        "std": 0.758029580116272,
+        "min": -2.182173013687134,
+        "max": 2.013059377670288,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:03:24.196755"
+  },
+  {
+    "step": 4860,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4860",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.195292592048645,
+        "std": 0.7852144241333008,
+        "min": -2.229323387145996,
+        "max": 2.0121405124664307,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.195292592048645,
+        "std": 0.7852144241333008,
+        "min": -2.229323387145996,
+        "max": 2.0121405124664307,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:10:47.821320"
+  },
+  {
+    "step": 4920,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4920",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2743604183197021,
+        "std": 0.7266519665718079,
+        "min": -2.0392274856567383,
+        "max": 2.012300491333008,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2743604183197021,
+        "std": 0.7266519665718079,
+        "min": -2.0392274856567383,
+        "max": 2.012300491333008,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:18:11.348061"
+  },
+  {
+    "step": 4980,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-4980",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2784554958343506,
+        "std": 0.7282007932662964,
+        "min": -2.1082468032836914,
+        "max": 2.0124990940093994,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2784554958343506,
+        "std": 0.7282007932662964,
+        "min": -2.1082468032836914,
+        "max": 2.0124990940093994,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:25:37.359403"
+  },
+  {
+    "step": 5040,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5040",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.23213791847229,
+        "std": 0.747162938117981,
+        "min": -2.0974574089050293,
+        "max": 2.014761209487915,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.23213791847229,
+        "std": 0.747162938117981,
+        "min": -2.0974574089050293,
+        "max": 2.014761209487915,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:33:00.450565"
+  },
+  {
+    "step": 5100,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5100",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.275061011314392,
+        "std": 0.7050161957740784,
+        "min": -2.2259998321533203,
+        "max": 2.0141565799713135,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.275061011314392,
+        "std": 0.7050161957740784,
+        "min": -2.2259998321533203,
+        "max": 2.0141565799713135,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:40:30.479445"
+  },
+  {
+    "step": 5160,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5160",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2559961080551147,
+        "std": 0.7273746132850647,
+        "min": -2.214240074157715,
+        "max": 2.012970447540283,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2559961080551147,
+        "std": 0.7273746132850647,
+        "min": -2.214240074157715,
+        "max": 2.012970447540283,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:47:54.285449"
+  },
+  {
+    "step": 5220,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5220",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2402269840240479,
+        "std": 0.7360028624534607,
+        "min": -2.196274518966675,
+        "max": 2.0127358436584473,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2402269840240479,
+        "std": 0.7360028624534607,
+        "min": -2.196274518966675,
+        "max": 2.0127358436584473,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T00:55:17.933410"
+  },
+  {
+    "step": 5280,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5280",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.260103702545166,
+        "std": 0.7237015962600708,
+        "min": -2.0864360332489014,
+        "max": 2.012158155441284,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.260103702545166,
+        "std": 0.7237015962600708,
+        "min": -2.0864360332489014,
+        "max": 2.012158155441284,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:02:42.213695"
+  },
+  {
+    "step": 5340,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5340",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2668029069900513,
+        "std": 0.7107503414154053,
+        "min": -2.152785301208496,
+        "max": 2.012892007827759,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2668029069900513,
+        "std": 0.7107503414154053,
+        "min": -2.152785301208496,
+        "max": 2.012892007827759,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:10:04.210254"
+  },
+  {
+    "step": 5400,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5400",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2813665866851807,
+        "std": 0.7025186419487,
+        "min": -1.96662175655365,
+        "max": 2.0144264698028564,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2813665866851807,
+        "std": 0.7025186419487,
+        "min": -1.96662175655365,
+        "max": 2.0144264698028564,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:17:29.150402"
+  },
+  {
+    "step": 5460,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5460",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2472587823867798,
+        "std": 0.7205935120582581,
+        "min": -2.114250421524048,
+        "max": 2.0094943046569824,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2472587823867798,
+        "std": 0.7205935120582581,
+        "min": -2.114250421524048,
+        "max": 2.0094943046569824,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:24:52.448851"
+  },
+  {
+    "step": 5520,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5520",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2029443979263306,
+        "std": 0.7641941905021667,
+        "min": -2.232595205307007,
+        "max": 2.009626626968384,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2029443979263306,
+        "std": 0.7641941905021667,
+        "min": -2.232595205307007,
+        "max": 2.009626626968384,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:32:17.027797"
+  },
+  {
+    "step": 5580,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5580",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1828968524932861,
+        "std": 0.7853752374649048,
+        "min": -2.2233076095581055,
+        "max": 2.0120136737823486,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1828968524932861,
+        "std": 0.7853752374649048,
+        "min": -2.2233076095581055,
+        "max": 2.0120136737823486,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:39:39.275944"
+  },
+  {
+    "step": 5640,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5640",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.206979513168335,
+        "std": 0.7729865312576294,
+        "min": -2.228059768676758,
+        "max": 2.0135791301727295,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.206979513168335,
+        "std": 0.7729865312576294,
+        "min": -2.228059768676758,
+        "max": 2.0135791301727295,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:46:59.574513"
+  },
+  {
+    "step": 5700,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5700",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2397608757019043,
+        "std": 0.7440105676651001,
+        "min": -2.1665525436401367,
+        "max": 2.01552677154541,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2397608757019043,
+        "std": 0.7440105676651001,
+        "min": -2.1665525436401367,
+        "max": 2.01552677154541,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T01:54:23.265253"
+  },
+  {
+    "step": 5760,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5760",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1808342933654785,
+        "std": 0.7829703092575073,
+        "min": -2.2271289825439453,
+        "max": 2.010831356048584,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1808342933654785,
+        "std": 0.7829703092575073,
+        "min": -2.2271289825439453,
+        "max": 2.010831356048584,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:01:46.225713"
+  },
+  {
+    "step": 5820,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5820",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2022022008895874,
+        "std": 0.7801526784896851,
+        "min": -2.149442672729492,
+        "max": 2.009894371032715,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2022022008895874,
+        "std": 0.7801526784896851,
+        "min": -2.149442672729492,
+        "max": 2.009894371032715,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:09:09.411577"
+  },
+  {
+    "step": 5880,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5880",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2524597644805908,
+        "std": 0.7366529703140259,
+        "min": -2.2552056312561035,
+        "max": 2.009763240814209,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2524597644805908,
+        "std": 0.7366529703140259,
+        "min": -2.2552056312561035,
+        "max": 2.009763240814209,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:16:31.711440"
+  },
+  {
+    "step": 5940,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-5940",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2284826040267944,
+        "std": 0.7536634802818298,
+        "min": -2.217978000640869,
+        "max": 2.011843204498291,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2284826040267944,
+        "std": 0.7536634802818298,
+        "min": -2.217978000640869,
+        "max": 2.011843204498291,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:23:56.052073"
+  },
+  {
+    "step": 6000,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6000",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1693429946899414,
+        "std": 0.7666594982147217,
+        "min": -2.214453935623169,
+        "max": 2.0108282566070557,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1693429946899414,
+        "std": 0.7666594982147217,
+        "min": -2.214453935623169,
+        "max": 2.0108282566070557,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:31:18.590683"
+  },
+  {
+    "step": 6060,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6060",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2330551147460938,
+        "std": 0.7546114325523376,
+        "min": -2.1977639198303223,
+        "max": 2.0099375247955322,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2330551147460938,
+        "std": 0.7546114325523376,
+        "min": -2.1977639198303223,
+        "max": 2.0099375247955322,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:38:41.371093"
+  },
+  {
+    "step": 6120,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6120",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2256516218185425,
+        "std": 0.7515620589256287,
+        "min": -2.192262649536133,
+        "max": 2.0129921436309814,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2256516218185425,
+        "std": 0.7515620589256287,
+        "min": -2.192262649536133,
+        "max": 2.0129921436309814,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:46:05.278009"
+  },
+  {
+    "step": 6180,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6180",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.2173948287963867,
+        "std": 0.7462681531906128,
+        "min": -2.243870258331299,
+        "max": 2.01173734664917,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.2173948287963867,
+        "std": 0.7462681531906128,
+        "min": -2.243870258331299,
+        "max": 2.01173734664917,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T02:53:29.270928"
+  },
+  {
+    "step": 6240,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6240",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1710097789764404,
+        "std": 0.7823178172111511,
+        "min": -2.257399559020996,
+        "max": 2.0098605155944824,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1710097789764404,
+        "std": 0.7823178172111511,
+        "min": -2.257399559020996,
+        "max": 2.0098605155944824,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:00:50.664144"
+  },
+  {
+    "step": 6300,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6300",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1723792552947998,
+        "std": 0.765924334526062,
+        "min": -2.0691332817077637,
+        "max": 2.008436918258667,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1723792552947998,
+        "std": 0.765924334526062,
+        "min": -2.0691332817077637,
+        "max": 2.008436918258667,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:08:13.683738"
+  },
+  {
+    "step": 6360,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6360",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1321828365325928,
+        "std": 0.789810299873352,
+        "min": -2.249976634979248,
+        "max": 2.007821559906006,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1321828365325928,
+        "std": 0.789810299873352,
+        "min": -2.249976634979248,
+        "max": 2.007821559906006,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:15:37.394768"
+  },
+  {
+    "step": 6420,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6420",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1532167196273804,
+        "std": 0.7714667320251465,
+        "min": -2.1159772872924805,
+        "max": 2.011030673980713,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1532167196273804,
+        "std": 0.7714667320251465,
+        "min": -2.1159772872924805,
+        "max": 2.011030673980713,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:22:59.281984"
+  },
+  {
+    "step": 6480,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6480",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.134418249130249,
+        "std": 0.781187117099762,
+        "min": -2.2573068141937256,
+        "max": 2.0111021995544434,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.134418249130249,
+        "std": 0.781187117099762,
+        "min": -2.2573068141937256,
+        "max": 2.0111021995544434,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:30:21.744682"
+  },
+  {
+    "step": 6540,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6540",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1062605381011963,
+        "std": 0.7936791777610779,
+        "min": -2.2312331199645996,
+        "max": 2.0106072425842285,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1062605381011963,
+        "std": 0.7936791777610779,
+        "min": -2.2312331199645996,
+        "max": 2.0106072425842285,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:37:46.640824"
+  },
+  {
+    "step": 6600,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6600",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.0238864421844482,
+        "std": 0.8289296627044678,
+        "min": -2.2544944286346436,
+        "max": 2.0060882568359375,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.0238864421844482,
+        "std": 0.8289296627044678,
+        "min": -2.2544944286346436,
+        "max": 2.0060882568359375,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:45:09.400786"
+  },
+  {
+    "step": 6660,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6660",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.0921951532363892,
+        "std": 0.7955090403556824,
+        "min": -2.268312454223633,
+        "max": 2.0110034942626953,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.0921951532363892,
+        "std": 0.7955090403556824,
+        "min": -2.268312454223633,
+        "max": 2.0110034942626953,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:52:31.321460"
+  },
+  {
+    "step": 6720,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6720",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1389601230621338,
+        "std": 0.7898566722869873,
+        "min": -2.253063678741455,
+        "max": 2.008294105529785,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1389601230621338,
+        "std": 0.7898566722869873,
+        "min": -2.253063678741455,
+        "max": 2.008294105529785,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T03:59:51.951137"
+  },
+  {
+    "step": 6780,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6780",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.06866455078125,
+        "std": 0.8441152572631836,
+        "min": -2.240314245223999,
+        "max": 2.010864496231079,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.06866455078125,
+        "std": 0.8441152572631836,
+        "min": -2.240314245223999,
+        "max": 2.010864496231079,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T04:07:17.119849"
+  },
+  {
+    "step": 6840,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6840",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.075629711151123,
+        "std": 0.8371455073356628,
+        "min": -2.1943845748901367,
+        "max": 2.008472204208374,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.075629711151123,
+        "std": 0.8371455073356628,
+        "min": -2.1943845748901367,
+        "max": 2.008472204208374,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T04:14:39.283610"
+  },
+  {
+    "step": 6900,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6900",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.0776522159576416,
+        "std": 0.8173115849494934,
+        "min": -2.2669057846069336,
+        "max": 2.0090644359588623,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.0776522159576416,
+        "std": 0.8173115849494934,
+        "min": -2.2669057846069336,
+        "max": 2.0090644359588623,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T04:22:00.766917"
+  },
+  {
+    "step": 6960,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-6960",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.1557668447494507,
+        "std": 0.7740420699119568,
+        "min": -2.0595006942749023,
+        "max": 2.010817766189575,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.1557668447494507,
+        "std": 0.7740420699119568,
+        "min": -2.0595006942749023,
+        "max": 2.010817766189575,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T04:29:24.358307"
+  },
+  {
+    "step": 7020,
+    "checkpoint_path": "/pfs/yangyuanming/code2/flow_grpo/logs/pickscore/flux-group24-8gpu/checkpoints/checkpoint-7020",
+    "reward_summary": {
+      "imagereward": {
+        "mean": 1.199899673461914,
+        "std": 0.7945986986160278,
+        "min": -2.1337904930114746,
+        "max": 2.010495662689209,
+        "count": 2048
+      },
+      "avg": {
+        "mean": 1.199899673461914,
+        "std": 0.7945986986160278,
+        "min": -2.1337904930114746,
+        "max": 2.010495662689209,
+        "count": 2048
+      }
+    },
+    "timestamp": "2025-08-19T04:36:48.938635"
+  }
+]

@@ -47,7 +47,7 @@ def aesthetic_score():
 def clip_score():
     from flow_grpo.clip_scorer import ClipScorer
 
-    scorer = ClipScorer(dtype=torch.float32).cuda()
+    scorer = ClipScorer(device='cuda')
 
     def _fn(images, prompts, metadata):
         if not isinstance(images, torch.Tensor):
