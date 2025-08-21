@@ -135,7 +135,7 @@ def eval_single_checkpoint(pipeline, test_dataloader, text_encoders, tokenizers,
         disable=not accelerator.is_local_main_process,
         position=0,
     )
-    
+    i = 0
     for test_batch in progress_bar:
         prompts, prompt_metadata = test_batch
         
@@ -172,6 +172,9 @@ def eval_single_checkpoint(pipeline, test_dataloader, text_encoders, tokenizers,
         for key, value in rewards.items():
             rewards_gather = accelerator.gather(torch.as_tensor(value, device=accelerator.device)).cpu().numpy()
             all_rewards[key].append(rewards_gather)
+        i += 1
+        if i > 2:
+            break
     
     # 合并所有GPU的结果
     all_rewards = {key: np.concatenate(value) for key, value in all_rewards.items()}
@@ -360,6 +363,7 @@ def main():
     # 准备reward函数
     try:
         reward_fn = getattr(flow_grpo.rewards, 'multi_score')(accelerator.device, config.reward_fn)
+        #  print("reward_fn", reward_fn)  
     except Exception as e:
         if accelerator.is_main_process:
             logger.warning(f"无法加载reward函数: {e}")
@@ -402,7 +406,7 @@ def main():
     all_results = []
     step_rewards = defaultdict(list)
     
-    for step, checkpoint_path in checkpoint_steps:
+    for step, checkpoint_path in tqdm(checkpoint_steps, desc="评估checkpoint"):
         if accelerator.is_main_process:
             logger.info(f"\n评估 checkpoint-{step}...")
         
@@ -445,6 +449,7 @@ def main():
                 )
                 
                 # 记录结果
+                print("reward_summary", reward_summary)
                 result = {
                     "step": step,
                     "checkpoint_path": checkpoint_path,

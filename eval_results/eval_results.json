@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-08-20T17:15:50.810284",
+  "model_path": "/pfs/yangyuanming/code2/models/FLUX.1-dev/model/black-forest-labs__FLUX.1-dev/main",
+  "dataset": "/pfs/yangyuanming/code2/flow_grpo/dataset/pickscore",
+  "prompt_fn": "general_ocr",
+  "eval_num_steps": 28,
+  "guidance_scale": 3.5,
+  "resolution": 512,
+  "rewards_summary": {
+    "clipscore": {
+      "mean": 0.9183094501495361,
+      "std": 0.14540109038352966,
+      "min": 0.7145715355873108,
+      "max": 1.1910263299942017,
+      "count": 11
+    },
+    "avg": {
+      "mean": 0.9183094501495361,
+      "std": 0.14540109038352966,
+      "min": 0.7145715355873108,
+      "max": 1.1910263299942017,
+      "count": 11
+    }
+  },
+  "sample_prompts": [
+    "photo of ford focus rs, night time, city, city roads, miami streets"
+  ],
+  "sample_rewards": [
+    {
+      "clipscore": 1.1910263299942017,
+      "avg": 1.1910263299942017
+    }
+  ]
+}

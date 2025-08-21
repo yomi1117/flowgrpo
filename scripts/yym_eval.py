@@ -87,7 +87,7 @@ def compute_text_embeddings(prompt, text_encoders, tokenizers, max_sequence_leng
 def eval_flux(pipeline, test_dataloader, text_encoders, tokenizers, config, accelerator, reward_fn, executor, autocast):
     """评估FLUX模型的主函数"""
     all_rewards = defaultdict(list)
-    
+    i = 0
     for test_batch in tqdm(
             test_dataloader,
             desc="Eval: ",
@@ -120,6 +120,9 @@ def eval_flux(pipeline, test_dataloader, text_encoders, tokenizers, config, acce
         for key, value in rewards.items():
             rewards_gather = accelerator.gather(torch.as_tensor(value, device=accelerator.device)).cpu().numpy()
             all_rewards[key].append(rewards_gather)
+        i += 1
+        if i > 10:
+            break
     
     last_batch_images_gather = accelerator.gather(torch.as_tensor(images, device=accelerator.device)).cpu().numpy()
     last_batch_prompt_ids = tokenizers[0](
